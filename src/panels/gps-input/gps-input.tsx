@@ -13,7 +13,7 @@ export function GPSInput() {
     }
 
     return (
-        <div className="gps-input-box">
+        <div className="input-box">
             <label
                 htmlFor="gps-input"
                 className="gps-label"

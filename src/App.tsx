@@ -4,6 +4,8 @@ import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import { SerialInput } from "./panels/serial-input/serial-input"
 import { GPSInput } from "./panels/gps-input/gps-input";
+import { ControlsInput } from "./panels/ControlsInput/controls-input";
+import { SatelliteInput } from "./panels/SatelliteInput/satellite-input";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -20,11 +22,16 @@ function App() {
 
       <div className="main-view">
         <div className="panel-input">
+          <GPSInput/>
+        </div>
+        <div className="panel-input">
           <SerialInput/>
         </div>
-
         <div className="panel-input">
-          <GPSInput/>
+          <SatelliteInput/>
+        </div>
+        <div className="panel-input">
+          <ControlsInput/>
         </div>
       </div>
 

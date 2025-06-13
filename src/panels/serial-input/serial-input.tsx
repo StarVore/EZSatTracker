@@ -14,7 +14,7 @@ export function SerialInput() {
     }
 
     return (
-        <div className="serial-input-box">
+        <div className="input-box">
             <label
                 htmlFor="serial-input"
                 className="serial-label"

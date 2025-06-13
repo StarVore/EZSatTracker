@@ -1,13 +1,3 @@
-.gps-input-box {
-    display: flex;
-    flex-direction: column;
-    border: 2px black;
-    border-style: solid;
-    border-radius: 4px;
-    padding: 8px;
-    max-width: fit-content;
-}
-
 .gps-form {
     display: flex;
     flex-direction: row;
