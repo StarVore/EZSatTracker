@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./serial-input.css";
-import "./serial-input.html";
 import "../../App.css";
 
 export function SerialInput() {
