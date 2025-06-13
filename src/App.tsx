@@ -14,7 +14,16 @@ function App() {
 
   return (
     <main className="container">
-      <h1>Welcome to Tauri + React</h1>
+      <h1>EZ Sat Tracker</h1>
+
+      <div className="row">
+        <div className="prg-list">
+          <h2>Current Work in Progress</h2>
+          <li>Setup UI</li>
+          <li>Setup Serial Output</li>
+          <li>Setup ability to grab satellite orbit data based on position</li>
+        </div>
+      </div>
 
       <div className="row">
         <a href="https://vite.dev" target="_blank">
