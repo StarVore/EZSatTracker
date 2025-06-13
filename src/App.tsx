@@ -2,6 +2,8 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
+import { SerialInput } from "./panels/serial-input/serial-input"
+import { GPSInput } from "./panels/gps-input/gps-input";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -16,6 +18,16 @@ function App() {
     <main className="container">
       <h1>EZ Sat Tracker</h1>
 
+      <div className="main-view">
+        <div className="panel-input">
+          <SerialInput/>
+        </div>
+
+        <div className="panel-input">
+          <GPSInput/>
+        </div>
+      </div>
+
       <div className="row">
         <div className="prg-list">
           <h2>Current Work in Progress</h2>
@@ -25,7 +37,9 @@ function App() {
         </div>
       </div>
 
-      <div className="row">
+      
+
+      {/* <div className="row">
         <a href="https://vite.dev" target="_blank">
           <img src="/vite.svg" className="logo vite" alt="Vite logo" />
         </a>
@@ -52,7 +66,7 @@ function App() {
         />
         <button type="submit">Greet</button>
       </form>
-      <p>{greetMsg}</p>
+      <p>{greetMsg}</p> */}
     </main>
   );
 }
