@@ -1,0 +1,15 @@
+.gps-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.gps-label {
+    width:max-content;
+    text-align: left;
+}
+
+button {
+    margin-left: 16px;
+    background-color: green;
+    flex-direction: row !important;
+}

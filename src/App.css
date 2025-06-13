@@ -69,6 +69,7 @@ h1 {
 }
 
 input,
+select,
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -95,6 +96,7 @@ button:active {
 }
 
 input,
+select,
 button {
   outline: none;
 }
@@ -114,6 +116,7 @@ button {
   }
 
   input,
+  select,
   button {
     color: #ffffff;
     background-color: #0f0f0f98;
@@ -121,4 +124,24 @@ button {
   button:active {
     background-color: #0f0f0f69;
   }
+}
+
+.main-view {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.panel-input {
+  margin: 12px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    border: 2px black;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 8px;
+    max-width: fit-content;
 }

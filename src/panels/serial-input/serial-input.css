@@ -1,0 +1,14 @@
+.serial-form {
+    display: fex;
+    flex-direction: row;
+}
+
+.serial-label {
+    width:max-content;
+    text-align: left;
+}
+
+button {
+    margin-left: 16px;
+    background-color: green;
+}
