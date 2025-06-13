@@ -46,6 +46,14 @@
   justify-content: center;
 }
 
+li {
+  text-align: left;
+}
+
+.prg-list {
+  flex-direction: column;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
