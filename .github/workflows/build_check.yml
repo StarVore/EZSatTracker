@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Linux build dependencies
-        run: sudo apt-get update && sudo apt-get install -y glib gdk libsoup javascriptcoregtk build-essential curl wget libssl-dev
+        run: sudo apt-get update && sudo apt-get install -y glib-2.0 gdk-3.0 libsoup-3.0 javascriptcoregtk-4.1 build-essential curl wget libssl-dev
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
