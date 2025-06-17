@@ -11,6 +11,7 @@ export function SerialInput() {
     async function testSerial() {
         console.log('Test serial: ' + showMsg);
         setShowMsg(!showMsg);
+        console.log(serial);
     }
 
     return (

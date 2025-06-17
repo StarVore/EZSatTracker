@@ -10,6 +10,7 @@ export function GPSInput() {
     async function testgps() {
         console.log('Test gps: ' + showMsg);
         setShowMsg(!showMsg);
+        console.log(gps);
     }
 
     return (
