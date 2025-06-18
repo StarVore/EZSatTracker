@@ -35,7 +35,7 @@ export default defineConfig([
     '**/coverage',
     '**/.next',
     '**/build',
-    '**/*.spec.tsx',
+    //'**/*.spec.tsx',
   ]),
   {
     extends: fixupConfigRules(
@@ -91,8 +91,8 @@ export default defineConfig([
       'jsx-a11y/interactive-supports-focus': 'warn',
       'prettier/prettier': 'error',
       'no-unused-vars': 'error',
-      'unused-imports/no-unused-vars': 'off',
-      'unused-imports/no-unused-imports': 'warn',
+      'unused-imports/no-unused-vars': 'error',
+      'unused-imports/no-unused-imports': 'error',
       //'object-curly-spacing': ['error', 'never'],
 
       '@typescript-eslint/no-unused-vars': [
