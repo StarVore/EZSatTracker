@@ -3,8 +3,12 @@ name: Build Check
 on: [pull_request]
 
 jobs:
-  build-tauri:
+  test-build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -16,13 +20,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '24' # Adjust to your project's Node version
+          node-version: '24'
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+      # - name: Set up Rust
+      #   uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
 
       - name: Install frontend dependencies
         run: npm install
@@ -41,4 +45,13 @@ jobs:
       #   run: npm run tauri build
 
       - name: Check if tests succeeded
+        if: success()
         run: echo "✅ Tests completed successfully"
+        
+      - name: Check if tests failed  
+        if: failure()
+        run: echo "❌ Tests failed, please check the logs above for details"
+
+      - name: 'Report Coverage'
+        if: always() 
+        uses:  davelosert/vitest-coverage-report-action@v2
