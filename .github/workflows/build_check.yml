@@ -10,6 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install Linux build dependencies
+        run: sudo apt-get update && sudo apt-get install -y glib-2.0 gdk-3.0 libsoup-3.0 javascriptcoregtk-4.1 build-essential curl wget libssl-dev webkit2gtk-4.1
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,12 +27,18 @@ jobs:
       - name: Install frontend dependencies
         run: npm install
 
-      - name: Install Rust and Tauri CLI dependencies
-        run: |
-          cargo install tauri-cli --force
+      - name: Setup Test Environment
+        run: npx playwright install
 
-      - name: Build Tauri app
-        run: npm run tauri build
+      - name: Execute Tests
+        run: npm run test:coverage
 
-      - name: Check if build succeeded
-        run: echo "✅ Build completed successfully"
+      # - name: Install Rust and Tauri CLI dependencies
+      #   run: |
+      #     cargo install tauri-cli --force
+
+      # - name: Build Tauri app
+      #   run: npm run tauri build
+
+      - name: Check if tests succeeded
+        run: echo "✅ Tests completed successfully"

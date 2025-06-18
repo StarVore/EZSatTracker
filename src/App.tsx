@@ -1,6 +1,6 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
+//import { useState } from "react";
+//import reactLogo from "./assets/react.svg";
+//import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import { SerialInput } from "./panels/serial-input/serial-input"
 import { GPSInput } from "./panels/gps-input/gps-input";
@@ -8,13 +8,13 @@ import { ControlsInput } from "./panels/ControlsInput/controls-input";
 import { SatelliteInput } from "./panels/SatelliteInput/satellite-input";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  //const [greetMsg, setGreetMsg] = useState("");
+  //const [name, setName] = useState("");
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  // async function greet() {
+  //   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+  //   setGreetMsg(await invoke("greet", { name }));
+  // }
 
   return (
     <main className="container">

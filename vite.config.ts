@@ -19,14 +19,49 @@ export default defineConfig(async () => ({
     host: host || false,
     hmr: host
       ? {
-          protocol: "ws",
-          host,
-          port: 1421,
-        }
+        protocol: "ws",
+        host,
+        port: 1421,
+      }
       : undefined,
     watch: {
       // 3. tell Vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"],
     },
   },
+  test: {
+    browser: {
+      enabled: true,
+      provider: 'playwright',
+      headless: true,
+      instances: [
+        { browser: 'chromium' },
+      ],
+      exclude: [
+        'coverage/**',
+        'dist/**',
+        '**/node_modules/**',
+        './src-tauri/**',
+      ],
+      include: [
+        '**/src/panels/**/*.spec.tsx',
+      ],
+    },
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      reportsDirectory: './coverage',
+      all: true,
+      include: [
+        'src/panels/**/*.tsx',
+        'src/panels/**/*.ts',
+      ],
+      exclude: [
+        'src/panels/**/*.spec.tsx',
+        'src/panels/**/*.test.tsx',
+        'src/panels/**/*.stories.tsx',
+        'src/panels/**/*.stories.ts',
+      ],
+    }
+  }
 }));
