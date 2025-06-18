@@ -8,9 +8,10 @@ export function SerialInput() {
 
     //let showMsg: Boolean = true;
 
-    async function testSerial() {
+    function testSerial() {
         console.log('Test serial: ' + showMsg);
         setShowMsg(!showMsg);
+        console.log(serial);
     }
 
     return (
@@ -33,7 +34,7 @@ export function SerialInput() {
                     <option value="/dev/ttyUSB0">/dev/ttyUSB0</option>
                     <option value="/dev/ttyAMC0">/dev/ttyAMC0</option>
                 </select>
-                <button type="submit">Enter</button>
+                <button type="submit" data-testid="serialBtn">Enter</button>
             </form>
             {showMsg && (<div><p>It works!</p></div>)}
         </div>
