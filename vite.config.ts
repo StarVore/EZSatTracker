@@ -51,6 +51,7 @@ export default defineConfig(async () => ({
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'json-summary'],
       reportsDirectory: './coverage',
+      reportOnFailure: true,
       all: true,
       include: [
         'src/panels/**/*.tsx',
