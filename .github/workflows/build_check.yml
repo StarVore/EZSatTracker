@@ -27,12 +27,18 @@ jobs:
       - name: Install frontend dependencies
         run: npm install
 
-      - name: Install Rust and Tauri CLI dependencies
-        run: |
-          cargo install tauri-cli --force
+      - name: Setup Test Environment
+        run: npx playwright install
 
-      - name: Build Tauri app
-        run: npm run tauri build
+      - name: Execute Tests
+        run: npm run test:coverage
 
-      - name: Check if build succeeded
-        run: echo "✅ Build completed successfully"
+      # - name: Install Rust and Tauri CLI dependencies
+      #   run: |
+      #     cargo install tauri-cli --force
+
+      # - name: Build Tauri app
+      #   run: npm run tauri build
+
+      - name: Check if tests succeeded
+        run: echo "✅ Tests completed successfully"
