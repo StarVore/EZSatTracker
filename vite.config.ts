@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -19,14 +19,14 @@ export default defineConfig(async () => ({
     host: host || false,
     hmr: host
       ? {
-        protocol: "ws",
-        host,
-        port: 1421,
-      }
+          protocol: 'ws',
+          host,
+          port: 1421,
+        }
       : undefined,
     watch: {
       // 3. tell Vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
+      ignored: ['**/src-tauri/**'],
     },
   },
   test: {
@@ -34,18 +34,9 @@ export default defineConfig(async () => ({
       enabled: true,
       provider: 'playwright',
       headless: true,
-      instances: [
-        { browser: 'chromium' },
-      ],
-      exclude: [
-        'coverage/**',
-        'dist/**',
-        '**/node_modules/**',
-        './src-tauri/**',
-      ],
-      include: [
-        '**/src/panels/**/*.spec.tsx',
-      ],
+      instances: [{ browser: 'chromium' }],
+      exclude: ['coverage/**', 'dist/**', '**/node_modules/**', './src-tauri/**'],
+      include: ['**/src/panels/**/*.spec.tsx'],
     },
     coverage: {
       provider: 'v8',
@@ -53,16 +44,15 @@ export default defineConfig(async () => ({
       reportsDirectory: './coverage',
       reportOnFailure: true,
       all: true,
-      include: [
-        'src/panels/**/*.tsx',
-        'src/panels/**/*.ts',
-      ],
+      include: ['src/panels/**/*.tsx', 'src/panels/**/*.ts'],
       exclude: [
         'src/panels/**/*.spec.tsx',
         'src/panels/**/*.test.tsx',
         'src/panels/**/*.stories.tsx',
         'src/panels/**/*.stories.ts',
+        '*.js',
+        '*.cjs',
       ],
-    }
-  }
+    },
+  },
 }));
