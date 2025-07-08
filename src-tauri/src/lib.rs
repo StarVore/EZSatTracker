@@ -1,6 +1,5 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 use tauri_plugin_log::{Target, TargetKind};
-use tauri::{TitleBarStyle, WebviewUrl, WebviewWindowBuilder};
 
 mod serial_util;
 
@@ -17,6 +16,10 @@ fn list_serial_ports() -> Result<Vec<String>, String> {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    #[cfg(target_os = "linux")]
+    unsafe { // Not unsafe if you don't use edition 2024
+        std::env::set_var("WEBKIT_DISABLE_DMABUF_RENDERER", "1");
+    }
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_log::Builder::new()
